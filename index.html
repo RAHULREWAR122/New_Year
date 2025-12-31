@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +12,19 @@
             box-sizing: border-box;
         }
 
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+        html {
+  scrollbar-width: none;
+}
+
         body {
             font-family: 'Georgia', serif;
             overflow: hidden;
             background: #000;
+             -ms-overflow-style: none;
         }
 
         .intro-screen {
@@ -22,13 +32,14 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 1000;
             transition: opacity 1s, transform 1s;
+            overflow-y: scroll;
         }
 
         .intro-screen.hide {
@@ -94,6 +105,7 @@
                 opacity: 0;
                 transform: translateY(50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -101,19 +113,25 @@
         }
 
         @keyframes glow {
-            0%, 100% {
+
+            0%,
+            100% {
                 text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
             }
+
             50% {
                 text-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 215, 0, 0.6);
             }
         }
 
         @keyframes buttonPulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 background-position: 0% 50%;
                 transform: scale(1);
             }
+
             50% {
                 background-position: 100% 50%;
                 transform: scale(1.05);
@@ -132,12 +150,15 @@
                 transform: translateY(100vh) rotate(0deg);
                 opacity: 0;
             }
+
             10% {
                 opacity: 0.6;
             }
+
             90% {
                 opacity: 0.6;
             }
+
             100% {
                 transform: translateY(-20vh) rotate(360deg);
                 opacity: 0;
@@ -206,19 +227,42 @@
         }
 
         @keyframes titlePulse {
-            0%, 100% { transform: translateX(-50%) scale(1); }
-            50% { transform: translateX(-50%) scale(1.05); }
+
+            0%,
+            100% {
+                transform: translateX(-50%) scale(1);
+            }
+
+            50% {
+                transform: translateX(-50%) scale(1.05);
+            }
         }
 
         @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         @keyframes shimmer {
-            0%, 100% { opacity: 0.95; }
-            50% { opacity: 1; text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+
+            0%,
+            100% {
+                opacity: 0.95;
+            }
+
+            50% {
+                opacity: 1;
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            }
         }
 
         .heart-float {
@@ -234,14 +278,17 @@
                 transform: translateY(100vh) rotate(0deg) scale(0);
                 opacity: 0;
             }
+
             10% {
                 opacity: 1;
                 transform: translateY(90vh) rotate(36deg) scale(1);
             }
+
             90% {
                 opacity: 1;
                 transform: translateY(-10vh) rotate(324deg) scale(1);
             }
+
             100% {
                 transform: translateY(-20vh) rotate(360deg) scale(0);
                 opacity: 0;
@@ -266,8 +313,15 @@
         }
 
         @keyframes messageGlow {
-            0%, 100% { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(255, 215, 0, 0.1); }
-            50% { box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3), inset 0 0 30px rgba(255, 215, 0, 0.2); }
+
+            0%,
+            100% {
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(255, 215, 0, 0.1);
+            }
+
+            50% {
+                box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3), inset 0 0 30px rgba(255, 215, 0, 0.2);
+            }
         }
 
         .sparkle {
@@ -282,15 +336,24 @@
         }
 
         @keyframes sparkleAnim {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .cosmic-dust {
             position: absolute;
             width: 100%;
             height: 100%;
-            background-image: 
+            background-image:
                 radial-gradient(2px 2px at 20% 30%, white, transparent),
                 radial-gradient(2px 2px at 60% 70%, #ffd700, transparent),
                 radial-gradient(1px 1px at 50% 50%, #ff69b4, transparent),
@@ -302,18 +365,26 @@
         }
 
         @keyframes cosmicMove {
-            0%, 100% { background-position: 0% 0%; }
-            50% { background-position: 100% 100%; }
+
+            0%,
+            100% {
+                background-position: 0% 0%;
+            }
+
+            50% {
+                background-position: 100% 100%;
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Intro Screen -->
     <div class="intro-screen" id="introScreen">
         <div class="intro-content">
             <h1>💕 My Dearest Varsha 💕</h1>
             <div class="message">
-                As we step into 2025, I want you to know that every moment with you has been magical. 
+                As we step into 2025, I want you to know that every moment with you has been magical.
                 You've filled my life with love, laughter, and countless beautiful memories.
             </div>
             <div class="sub-message">
@@ -321,22 +392,22 @@
                 A journey through our precious moments together
             </div>
             <button class="start-button" onclick="startExperience()">
-                Begin Our Journey 💖
+                Click Me Baby 💖
             </button>
         </div>
     </div>
 
     <!-- Main Animation -->
     <canvas id="canvas"></canvas>
-    
+
     <div class="overlay" id="mainOverlay">
         <div class="cosmic-dust"></div>
-        
+
         <div class="title">
             <h1>✨ HAPPY NEW YEAR 2025 ✨</h1>
             <p>For My Beautiful Varsha 💕</p>
         </div>
-        
+
         <div class="message-box">
             🌟 Every moment with you is a treasure 🌟
         </div>
@@ -349,54 +420,54 @@
         let time = 0;
         let animationStarted = false;
 
-        
+
         function createIntroHearts() {
-            setInterval(() => {
-                const heart = document.createElement('div');
+            setInterval( () => {
+                const heart = document.createElement( 'div' );
                 heart.className = 'intro-hearts';
-                heart.innerHTML = ['❤️', '💕', '💖', '💗', '💝'][Math.floor(Math.random() * 5)];
+                heart.innerHTML = [ '❤️', '💕', '💖', '💗', '💝' ][ Math.floor( Math.random() * 5 ) ];
                 heart.style.left = Math.random() * 100 + '%';
                 heart.style.animationDelay = Math.random() * 2 + 's';
-                document.getElementById('introScreen').appendChild(heart);
-                setTimeout(() => heart.remove(), 8000);
-            }, 500);
+                document.getElementById( 'introScreen' ).appendChild( heart );
+                setTimeout( () => heart.remove(), 8000 );
+            }, 500 );
         }
         createIntroHearts();
 
         function startExperience() {
-            const introScreen = document.getElementById('introScreen');
-            const canvas = document.getElementById('canvas');
-            const overlay = document.getElementById('mainOverlay');
-            
-            introScreen.classList.add('hide');
-            
-            setTimeout(() => {
-                canvas.classList.add('show');
-                overlay.classList.add('show');
-                if (!animationStarted) {
+            const introScreen = document.getElementById( 'introScreen' );
+            const canvas = document.getElementById( 'canvas' );
+            const overlay = document.getElementById( 'mainOverlay' );
+
+            introScreen.classList.add( 'hide' );
+
+            setTimeout( () => {
+                canvas.classList.add( 'show' );
+                overlay.classList.add( 'show' );
+                if ( !animationStarted ) {
                     init();
                     animationStarted = true;
                 }
-            }, 500);
+            }, 500 );
         }
 
         function init() {
             scene = new THREE.Scene();
-            scene.fog = new THREE.FogExp2(0x000000, 0.015);
+            scene.fog = new THREE.FogExp2( 0x000000, 0.015 );
 
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
             camera.position.z = 25;
 
-            renderer = new THREE.WebGLRenderer({ 
-                canvas: document.getElementById('canvas'),
+            renderer = new THREE.WebGLRenderer( {
+                canvas: document.getElementById( 'canvas' ),
                 antialias: true,
                 alpha: true
-            });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setClearColor(0x0a0a1a, 1);
+            } );
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            renderer.setClearColor( 0x0a0a1a, 1 );
 
             photoGroup = new THREE.Group();
-            scene.add(photoGroup);
+            scene.add( photoGroup );
 
             createLighting();
             createPhotoGallery();
@@ -404,8 +475,8 @@
             createGlowingSpheres();
             createEnergyRings();
 
-            window.addEventListener('resize', onResize);
-            document.addEventListener('mousemove', onMouseMove);
+            window.addEventListener( 'resize', onResize );
+            document.addEventListener( 'mousemove', onMouseMove );
 
             animate();
             createFloatingHearts();
@@ -413,238 +484,239 @@
         }
 
         function createLighting() {
-            const ambientLight = new THREE.AmbientLight(0x404040, 0.8);
-            scene.add(ambientLight);
+            const ambientLight = new THREE.AmbientLight( 0x404040, 0.8 );
+            scene.add( ambientLight );
 
             const lights = [
-                { color: 0xff0080, pos: [15, 0, 0] },
-                { color: 0x00ff80, pos: [-15, 0, 0] },
-                { color: 0x0080ff, pos: [0, 15, 0] },
-                { color: 0xffff00, pos: [0, -15, 0] },
-                { color: 0xff00ff, pos: [0, 0, 15] },
-                { color: 0x00ffff, pos: [0, 0, -15] }
+                { color: 0xff0080, pos: [ 15, 0, 0 ] },
+                { color: 0x00ff80, pos: [ -15, 0, 0 ] },
+                { color: 0x0080ff, pos: [ 0, 15, 0 ] },
+                { color: 0xffff00, pos: [ 0, -15, 0 ] },
+                { color: 0xff00ff, pos: [ 0, 0, 15 ] },
+                { color: 0x00ffff, pos: [ 0, 0, -15 ] }
             ];
 
-            lights.forEach(light => {
-                const pointLight = new THREE.PointLight(light.color, 1.5, 50);
-                pointLight.position.set(...light.pos);
-                scene.add(pointLight);
-            });
+            lights.forEach( light => {
+                const pointLight = new THREE.PointLight( light.color, 1.5, 50 );
+                pointLight.position.set( ...light.pos );
+                scene.add( pointLight );
+            } );
         }
 
-       function createPhotoGallery() {
-            for (let i = 0; i < 22; i++) {
+        function createPhotoGallery() {
+            for ( let i = 0; i < 22; i++ ) {
                 const textureLoader = new THREE.TextureLoader();
                 const imagePath = `${i + 1}.jpeg`;
-                
-                const geometry = new THREE.PlaneGeometry(4, 4);
-                const material = new THREE.MeshPhongMaterial({ 
+
+                const geometry = new THREE.PlaneGeometry( 4, 4 );
+                const material = new THREE.MeshPhongMaterial( {
                     side: THREE.DoubleSide,
                     shininess: 100,
                     emissiveIntensity: 0.3,
                     transparent: true,
                     opacity: 0.95,
-                    height : 300,
-                    width : 300
-                });
-                
-                const photo = new THREE.Mesh(geometry, material);
+                    height: 300,
+                    width: 300
+                } );
+
+                const photo = new THREE.Mesh( geometry, material );
 
                 const t = i / 22;
                 const radius = 15;
                 const theta = t * Math.PI * 4;
-                const phi = Math.acos(1 - 2 * t);
-                
-                photo.position.x = radius * Math.sin(phi) * Math.cos(theta);
-                photo.position.y = radius * Math.sin(phi) * Math.sin(theta);
-                photo.position.z = radius * Math.cos(phi);
-                
-                photo.userData = { 
+                const phi = Math.acos( 1 - 2 * t );
+
+                photo.position.x = radius * Math.sin( phi ) * Math.cos( theta );
+                photo.position.y = radius * Math.sin( phi ) * Math.sin( theta );
+                photo.position.z = radius * Math.cos( phi );
+
+                photo.userData = {
                     originalPos: photo.position.clone(),
                     rotationSpeed: 0.002 + Math.random() * 0.003,
                     floatOffset: Math.random() * Math.PI * 2,
                     index: i
                 };
 
-                photoGroup.add(photo);
-                photos.push(photo);
-                
+                photoGroup.add( photo );
+                photos.push( photo );
+
                 // Load texture asynchronously
                 textureLoader.load(
                     imagePath,
-                    (texture) => {
+                    ( texture ) => {
                         material.map = texture;
                         material.needsUpdate = true;
                     },
                     undefined,
-                    (error) => {
-                        console.error(`Error loading ${imagePath}:`, error);
+                    ( error ) => {
+                        console.error( `Error loading ${imagePath}:`, error );
                     }
                 );
             }
         }
-        
+
         function createParticleSystem() {
             const geometry = new THREE.BufferGeometry();
             const vertices = [];
             const colors = [];
-            
-            for (let i = 0; i < 5000; i++) {
+
+            for ( let i = 0; i < 5000; i++ ) {
                 const radius = 50 + Math.random() * 50;
                 const theta = Math.random() * Math.PI * 2;
                 const phi = Math.random() * Math.PI * 2;
-                
+
                 vertices.push(
-                    radius * Math.sin(phi) * Math.cos(theta),
-                    radius * Math.sin(phi) * Math.sin(theta),
-                    radius * Math.cos(phi)
+                    radius * Math.sin( phi ) * Math.cos( theta ),
+                    radius * Math.sin( phi ) * Math.sin( theta ),
+                    radius * Math.cos( phi )
                 );
-                
+
                 const color = new THREE.Color();
-                color.setHSL(Math.random(), 1, 0.7);
-                colors.push(color.r, color.g, color.b);
+                color.setHSL( Math.random(), 1, 0.7 );
+                colors.push( color.r, color.g, color.b );
             }
-            
-            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-            geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
-            
-            const material = new THREE.PointsMaterial({
+
+            geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
+            geometry.setAttribute( 'color', new THREE.Float32BufferAttribute( colors, 3 ) );
+
+            const material = new THREE.PointsMaterial( {
                 size: 0.3,
                 vertexColors: true,
                 transparent: true,
                 opacity: 0.8,
                 blending: THREE.AdditiveBlending
-            });
-            
-            const particles = new THREE.Points(geometry, material);
-            scene.add(particles);
-            
+            } );
+
+            const particles = new THREE.Points( geometry, material );
+            scene.add( particles );
+
             particles.userData = { type: 'particles' };
         }
 
         function createGlowingSpheres() {
-            for (let i = 0; i < 10; i++) {
-                const geometry = new THREE.SphereGeometry(0.5, 16, 16);
-                const material = new THREE.MeshBasicMaterial({
-                    color: new THREE.Color().setHSL(i / 10, 1, 0.5),
+            for ( let i = 0; i < 10; i++ ) {
+                const geometry = new THREE.SphereGeometry( 0.5, 16, 16 );
+                const material = new THREE.MeshBasicMaterial( {
+                    color: new THREE.Color().setHSL( i / 10, 1, 0.5 ),
                     transparent: true,
                     opacity: 0.6,
                     blending: THREE.AdditiveBlending
-                });
-                
-                const sphere = new THREE.Mesh(geometry, material);
-                const angle = (i / 10) * Math.PI * 2;
-                sphere.position.x = Math.cos(angle) * 20;
-                sphere.position.z = Math.sin(angle) * 20;
+                } );
+
+                const sphere = new THREE.Mesh( geometry, material );
+                const angle = ( i / 10 ) * Math.PI * 2;
+                sphere.position.x = Math.cos( angle ) * 20;
+                sphere.position.z = Math.sin( angle ) * 20;
                 sphere.userData = { orbitAngle: angle, orbitSpeed: 0.5 };
-                
-                scene.add(sphere);
+
+                scene.add( sphere );
             }
         }
 
         function createEnergyRings() {
-            for (let i = 0; i < 3; i++) {
-                const geometry = new THREE.TorusGeometry(18 + i * 3, 0.1, 16, 100);
-                const material = new THREE.MeshBasicMaterial({
-                    color: new THREE.Color().setHSL(i / 3, 1, 0.5),
+            for ( let i = 0; i < 3; i++ ) {
+                const geometry = new THREE.TorusGeometry( 18 + i * 3, 0.1, 16, 100 );
+                const material = new THREE.MeshBasicMaterial( {
+                    color: new THREE.Color().setHSL( i / 3, 1, 0.5 ),
                     transparent: true,
                     opacity: 0.3,
                     blending: THREE.AdditiveBlending
-                });
-                
-                const ring = new THREE.Mesh(geometry, material);
+                } );
+
+                const ring = new THREE.Mesh( geometry, material );
                 ring.rotation.x = Math.PI / 2;
-                ring.userData = { rotationSpeed: 0.001 * (i + 1) };
-                scene.add(ring);
+                ring.userData = { rotationSpeed: 0.001 * ( i + 1 ) };
+                scene.add( ring );
             }
         }
 
         let mouseX = 0, mouseY = 0;
-        function onMouseMove(e) {
-            mouseX = (e.clientX / window.innerWidth - 0.5) * 0.5;
-            mouseY = (e.clientY / window.innerHeight - 0.5) * 0.5;
+        function onMouseMove( e ) {
+            mouseX = ( e.clientX / window.innerWidth - 0.5 ) * 0.5;
+            mouseY = ( e.clientY / window.innerHeight - 0.5 ) * 0.5;
         }
 
         function animate() {
-            requestAnimationFrame(animate);
+            requestAnimationFrame( animate );
             time += 0.01;
             autoRotation += 0.003;
 
             photoGroup.rotation.y = autoRotation;
-            photoGroup.rotation.x = Math.sin(time * 0.2) * 0.2;
-            photoGroup.rotation.z = Math.cos(time * 0.15) * 0.1;
+            photoGroup.rotation.x = Math.sin( time * 0.2 ) * 0.2;
+            photoGroup.rotation.z = Math.cos( time * 0.15 ) * 0.1;
 
-            camera.position.x = Math.sin(time * 0.1) * 3 + mouseX * 5;
-            camera.position.y = Math.cos(time * 0.12) * 2 + mouseY * 5;
-            camera.lookAt(scene.position);
+            camera.position.x = Math.sin( time * 0.1 ) * 3 + mouseX * 5;
+            camera.position.y = Math.cos( time * 0.12 ) * 2 + mouseY * 5;
+            camera.lookAt( scene.position );
 
-            photos.forEach((photo, i) => {
+            photos.forEach( ( photo, i ) => {
                 photo.rotation.y += photo.userData.rotationSpeed;
-                photo.rotation.x = Math.sin(time + photo.userData.floatOffset) * 0.3;
-                
-                const scale = 1 + Math.sin(time * 2 + i) * 0.1;
-                photo.scale.set(scale, scale, 1);
-                
-                const wave = Math.sin(time * 2 + i * 0.5) * 2;
-                photo.position.y = photo.userData.originalPos.y + wave;
-                
-                photo.material.emissiveIntensity = 0.3 + Math.sin(time * 3 + i) * 0.15;
-            });
+                photo.rotation.x = Math.sin( time + photo.userData.floatOffset ) * 0.3;
 
-            scene.children.forEach(child => {
-                if (child.userData.type === 'particles') {
+                const scale = 1 + Math.sin( time * 2 + i ) * 0.1;
+                photo.scale.set( scale, scale, 1 );
+
+                const wave = Math.sin( time * 2 + i * 0.5 ) * 2;
+                photo.position.y = photo.userData.originalPos.y + wave;
+
+                photo.material.emissiveIntensity = 0.3 + Math.sin( time * 3 + i ) * 0.15;
+            } );
+
+            scene.children.forEach( child => {
+                if ( child.userData.type === 'particles' ) {
                     child.rotation.y = time * 0.05;
                     child.rotation.x = time * 0.03;
                 }
-                
-                if (child.userData.orbitAngle !== undefined) {
+
+                if ( child.userData.orbitAngle !== undefined ) {
                     child.userData.orbitAngle += child.userData.orbitSpeed * 0.01;
-                    child.position.x = Math.cos(child.userData.orbitAngle) * 20;
-                    child.position.z = Math.sin(child.userData.orbitAngle) * 20;
-                    child.position.y = Math.sin(time + child.userData.orbitAngle) * 5;
+                    child.position.x = Math.cos( child.userData.orbitAngle ) * 20;
+                    child.position.z = Math.sin( child.userData.orbitAngle ) * 20;
+                    child.position.y = Math.sin( time + child.userData.orbitAngle ) * 5;
                 }
-                
-                if (child.userData.rotationSpeed) {
+
+                if ( child.userData.rotationSpeed ) {
                     child.rotation.z += child.userData.rotationSpeed;
                 }
-            });
+            } );
 
-            renderer.render(scene, camera);
+            renderer.render( scene, camera );
         }
 
         function createFloatingHearts() {
-            setInterval(() => {
-                if (!animationStarted) return;
-                const heart = document.createElement('div');
+            setInterval( () => {
+                if ( !animationStarted ) return;
+                const heart = document.createElement( 'div' );
                 heart.className = 'heart-float';
-                heart.innerHTML = ['❤️', '💕', '💖', '💗', '💝'][Math.floor(Math.random() * 5)];
+                heart.innerHTML = [ '❤️', '💕', '💖', '💗', '💝' ][ Math.floor( Math.random() * 5 ) ];
                 heart.style.left = Math.random() * 100 + '%';
-                heart.style.animationDuration = (4 + Math.random() * 3) + 's';
+                heart.style.animationDuration = ( 4 + Math.random() * 3 ) + 's';
                 heart.style.animationDelay = Math.random() + 's';
-                document.getElementById('mainOverlay').appendChild(heart);
-                setTimeout(() => heart.remove(), 7000);
-            }, 600);
+                document.getElementById( 'mainOverlay' ).appendChild( heart );
+                setTimeout( () => heart.remove(), 7000 );
+            }, 600 );
         }
 
         function createSparkles() {
-            setInterval(() => {
-                if (!animationStarted) return;
-                const sparkle = document.createElement('div');
+            setInterval( () => {
+                if ( !animationStarted ) return;
+                const sparkle = document.createElement( 'div' );
                 sparkle.className = 'sparkle';
                 sparkle.style.left = Math.random() * 100 + '%';
                 sparkle.style.top = Math.random() * 100 + '%';
                 sparkle.style.animationDelay = Math.random() + 's';
-                document.getElementById('mainOverlay').appendChild(sparkle);
-                setTimeout(() => sparkle.remove(), 2000);
-            }, 300);
+                document.getElementById( 'mainOverlay' ).appendChild( sparkle );
+                setTimeout( () => sparkle.remove(), 2000 );
+            }, 300 );
         }
 
         function onResize() {
-            if (!camera || !renderer) return;
+            if ( !camera || !renderer ) return;
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setSize( window.innerWidth, window.innerHeight );
         }
     </script>
 </body>
+
 </html>
